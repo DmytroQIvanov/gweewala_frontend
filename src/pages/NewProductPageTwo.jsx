@@ -13,6 +13,7 @@ import { BuffaloGheeincrement, CowGheedecrement, CowGheeincrement } from "../Red
 import { BuffaloGheedecrement } from "../Redux/UpdatedEcommerceReducer";
 import RelatedProductCard from "./RelatedProductCard/RelatedProductCard";
 import BelieveCardBeforeMDScrn from "./ProductPageComponents/BelieveCardBeforeMDScrn";
+import {serverUrl} from "../data";
 
 function NewProductPageTwo() {
 
@@ -42,7 +43,7 @@ function NewProductPageTwo() {
 
   {
     React.useEffect(() => {
-      fetch(`http://127.0.0.1:5000/product`).then((result) => {
+      fetch(`${serverUrl}/product`).then((result) => {
         result.json().then((resp) => {
           setItem(resp[1])
           setItem2(resp[0])

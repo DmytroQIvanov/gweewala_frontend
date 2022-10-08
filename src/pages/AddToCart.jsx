@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CheckoutDone } from "../Redux/UpdatedEcommerceReducer";
 import { useEffect } from "react";
+import {serverUrl} from "../data";
 
 const AddToCart = () => {
 
@@ -108,7 +109,7 @@ const AddToCart = () => {
 
     {
         useEffect(() => {
-            fetch(`http://127.0.0.1:5000/product`).then((result) => {
+            fetch(`${serverUrl}/product`).then((result) => {
                 result.json().then((resp) => {
                     setItem(resp[0])
                     setItem2(resp[1])

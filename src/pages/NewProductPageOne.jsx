@@ -15,6 +15,7 @@ import bilona from "../content/images/bilona.png";
 import packaging from "../content/images/packaging.png";
 import ship from "../content/images/ready to ship.png";
 import { useEffect } from "react";
+import {serverUrl} from "../data";
 
 function NewProductPageOne() {
 
@@ -44,7 +45,7 @@ function NewProductPageOne() {
 
   {
     useEffect(() => {
-      fetch(`http://127.0.0.1:5000/product`).then((result) => {
+      fetch(`${serverUrl}/product`).then((result) => {
         result.json().then((resp) => {
           setItem(resp[1])
           setItem2(resp[0])

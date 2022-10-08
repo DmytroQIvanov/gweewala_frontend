@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import headerLogo from '../content/images/logo.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { SaveLoginDetails } from "../Redux/UpdatedEcommerceReducer";
+import {serverUrl} from "../data";
 
 function Login() {
 
@@ -29,7 +30,7 @@ function Login() {
       }
     })
   }
-
+  http://127.0.0.1:5000
   const handleClick = () => {
     setOpen(true);
   };
@@ -56,7 +57,7 @@ function Login() {
     let email = gettingLoginEmail
     let password = gettingLoginPassword
     let data = { email, password }
-    let result = await fetch(`http://127.0.0.1:5000/auth/login`, {
+    let result = await fetch(`${serverUrl}/auth/login`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

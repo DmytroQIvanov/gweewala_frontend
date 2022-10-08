@@ -12,6 +12,7 @@ import ship from "../content/images/ready to ship.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import * as React from "react";
+import {serverUrl} from "../data";
 
 function Home() {
 
@@ -38,7 +39,7 @@ function Home() {
 
   {
     React.useEffect(() => {
-      fetch(`http://127.0.0.1:5000/product`).then((result) => {
+      fetch(`${serverUrl}/product`).then((result) => {
         console.log(result)
         result.json().then((resp) => {
           setItem(resp[1])
