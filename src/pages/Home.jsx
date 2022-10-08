@@ -143,9 +143,9 @@ function Home() {
                 number="2"
                 // productImg={`http://localhost:5000/public/${item.ProductImage}`}
                 ratingQty="15"
-                productName={item.Title}
+                productName={item?.Title}
                 productCategory="Pure Desi Ghee"
-                productDescription={item.ShortDescription}
+                productDescription={item?.ShortDescription}
                 Attribute={["500gm", "1kg", "5kg"]}
                 OriginalPrice={[900, 1600, 7500]}
                 DiscountedPrice={[650, 1250, 5400]}

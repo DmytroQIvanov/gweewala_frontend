@@ -57,7 +57,7 @@ const AddToCart = () => {
     async function placeOrderSubmit() {
         let userId = gettingUserDetails[0].userId
         if (BuffaloGheeQty >= 1) {
-            let productId = (item.id)
+            let productId = (item?.id)
             let Qty = BuffaloGheeQty
             let data = { Qty }
             let result = await fetch(`https://backend64212.herokuapp.com/order/place_order/userId=${userId}/productId=${productId}`, {
@@ -145,7 +145,7 @@ const AddToCart = () => {
                                         <div className="mb-2">
                                             <input type="email" class="form-control p-2 w-100" placeholder="Email Address" />
                                         </div>
-                                        <input type="checkbox" className="me-1" id="keepMeUpdate" />
+                                           <input type="checkbox" className="me-1" id="keepMeUpdate" />
                                         <label htmlFor="keepMeUpdate">Keep me up to date on news or offers</label>
                                     </div>
                                     <div className="mt-4 mb-3">
@@ -210,12 +210,12 @@ const AddToCart = () => {
                                     CowGheeQty >= 1 ?
                                         <div className="row product_details pt-3">
                                             <div className="col-3 col-xl-2" style={{ textAlign: "right" }}>
-                                                <img src={`https://backend64212.herokuapp.com//public/${item2.ProductImage}`} alt="#ImgNotFound" width="80px" height="80px" />
+                                                <img src={`https://backend64212.herokuapp.com//public/${item2?.ProductImage}`} alt="#ImgNotFound" width="80px" height="80px" />
                                             </div>
                                             <div className="col-9 col-xl-10" style={{ textAlign: "left" }}>
-                                                <h6>{item2.Title}</h6>
+                                                <h6>{item2?.Title}</h6>
                                                 <h6>QTY: {CowGheeQty}</h6>
-                                                <h6>${item2.Price}</h6>
+                                                <h6>${item2?.Price}</h6>
                                             </div>
                                         </div>
                                         :
@@ -230,7 +230,7 @@ const AddToCart = () => {
                                         <>
                                             {
                                                 (BuffaloGheeQty >= 1 || CowGheeQty >= 1) ?
-                                                    <>{(item.Price * BuffaloGheeQty) + (item2.Price * CowGheeQty)}</>
+                                                    <>{(item?.Price * BuffaloGheeQty) + (item2?.Price * CowGheeQty)}</>
                                                     :
                                                     <>0</>
                                             }

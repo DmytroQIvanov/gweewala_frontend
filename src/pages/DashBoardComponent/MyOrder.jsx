@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import {serverUrl} from "../../data";
 
 function MyOrder() {
 
@@ -15,7 +16,7 @@ function MyOrder() {
             if (gettingUserDetails.length === 0) {
                 navigate("/login")
             } else {
-                fetch(`http://localhost:5000/order/user_profile/${gettingUserDetails[0].userId}`).then((result) => {
+                fetch(`${serverUrl}/order/user_profile/${gettingUserDetails[0].userId}`).then((result) => {
                     result.json().then((resp) => {
                         setAllOrders(resp)
                         console.log(resp)

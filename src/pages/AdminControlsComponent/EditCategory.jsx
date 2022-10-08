@@ -2,6 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { Alert } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
+import {serverUrl} from "../../data";
 
 function EditCategory() {
 
@@ -27,11 +28,11 @@ function EditCategory() {
 
     {
         React.useEffect(() => {
-            fetch(`http://localhost:5000/Category/single_category/${categoryId}`).then((result) => {
+            fetch(`${serverUrl}/Category/single_category/${categoryId}`).then((result) => {
                 result.json().then((resp) => {
                     setSingleCategoryDetails(resp)
-                    setCategoryTitle(resp[0].Title)
-                    setCategoryImage(resp[0].CategoryImage)
+                    setCategoryTitle(resp[0]?.Title)
+                    setCategoryImage(resp[0]?.CategoryImage)
                 })
             })
         }, [])
@@ -43,7 +44,7 @@ function EditCategory() {
         formdata.append("Title", CategoryTitle);
         formdata.append("CategoryImage", CategoryImage);
         // let data = { formdata }
-        let result = await fetch(`http://localhost:5000/Category/${categoryId}`, {
+        let result = await fetch(`${serverUrl}/Category/${categoryId}`, {
             method: "PATCH",
             body: formdata
         })

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Alert } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
+import {serverUrl} from "../../data";
 
 function CategoryControl() {
 
@@ -12,7 +13,7 @@ function CategoryControl() {
     const [allCategory, setAllCategory] = useState([])
     const [AlertMessage, setAlertMessage] = useState("");
     const [AlertMessageBg, setAlertMessageBg] = useState("");
-    const gettingUserDetails = useSelector(state => state.UserDetail)
+    const gettingUserDetails = useSelector(state => state?.UserDetail)
 
     const handleClick = () => {
         setOpen(true);
@@ -27,7 +28,7 @@ function CategoryControl() {
 
     {
         useEffect(() => {
-            fetch(`https://backend64212.herokuapp.com/Category`).then((result) => {
+            fetch(`${serverUrl}/Category`).then((result) => {
                 result.json().then((resp) => {
                     setAllCategory(resp)
                     setloading(true)
@@ -43,17 +44,17 @@ function CategoryControl() {
     }
 
     async function deleteCategory(categoryId) {
-        let result = await fetch(`http://localhost:5000/Category/${categoryId}`, {
+        let result = await fetch(`${serverUrl}/Category/${categoryId}`, {
             method: "Delete"
         })
         // let output = ""
         // output = await result.json()
         let output = await result.json()
-        if (output.affected === 1) {
+        if (output?.affected === 1) {
             setAlertMessageBg('#218838')
             setAlertMessage("Category Deleted Successfully")
             handleClick()
-            fetch(`http://localhost:5000/Category`).then((result) => {
+            fetch(`${serverUrl}/Category`).then((result) => {
                 result.json().then((resp) => {
                     setAllCategory(resp)
                     setloading(true)
@@ -93,7 +94,7 @@ function CategoryControl() {
                                     (allCategory).map((allCategory, i) =>
                                         <tr>
                                             <th scope="row">{i + 1}</th>
-                                            <td><img src={`http://localhost:5000/public/${allCategory.CategoryImage}`} alt="#ImgNotFound" style={{ width: "30px", height: "30px", borderRadius: "100%" }} /></td>
+                                            <td><img src={`${serverUrl}/public/${allCategory?.CategoryImage}`} alt="#ImgNotFound" style={{ width: "30px", height: "30px", borderRadius: "100%" }} /></td>
                                             <td>{allCategory.Title}</td>
                                             <td>
                                                 <button type="button" class="btn" style={{ background: "#0B5ED7", color: "white" }} onClick={() => moveToEditPage(`${allCategory.id}`)}>Edit</button>

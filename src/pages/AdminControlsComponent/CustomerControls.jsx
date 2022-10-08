@@ -86,7 +86,7 @@ function CustomerControls() {
         if (output.affected === 1) {
             setAlertMessageBg('#218838')
             setAlertMessage("Status Changed Successfully")
-            fetch(`http://localhost:5000/auth`).then((result) => {
+            fetch(`${serverUrl}/auth`).then((result) => {
                 result.json().then((resp) => {
                     setAllUsers(resp)
                     setloading(true)
@@ -105,7 +105,7 @@ function CustomerControls() {
         setloading(false)
         let role = "delete"
         let data = { role }
-        let result = await fetch(`http://localhost:5000/auth/change_user_role/${userId}`, {
+        let result = await fetch(`${serverUrl}/auth/change_user_role/${userId}`, {
             method: "PATCH",
             body: JSON.stringify(data),
             headers: {
@@ -117,7 +117,7 @@ function CustomerControls() {
         if (output.affected === 1) {
             setAlertMessageBg('#218838')
             setAlertMessage("Status Changed Successfully")
-            fetch(`http://localhost:5000/auth`).then((result) => {
+            fetch(`${serverUrl}/auth`).then((result) => {
                 result.json().then((resp) => {
                     setAllUsers(resp)
                     setloading(true)

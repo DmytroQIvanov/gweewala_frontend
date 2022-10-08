@@ -3,6 +3,7 @@ import { Alert } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { Logout, SaveLoginDetails } from "../../Redux/UpdatedEcommerceReducer";
+import {serverUrl} from "../../data";
 
 function EditProfile() {
 
@@ -30,7 +31,7 @@ function EditProfile() {
         let name = userName
         let address = userAddress
         let data = { name, address }
-        let result = await fetch(`http://localhost:5000/auth/updated_profile/${gettingUserDetails[0].userId}`, {
+        let result = await fetch(`${serverUrl}/auth/updated_profile/${gettingUserDetails[0].userId}`, {
             method: "PATCH",
             body: JSON.stringify(data),
             headers: {

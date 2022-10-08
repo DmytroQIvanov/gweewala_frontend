@@ -4,6 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Alert } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
+import {serverUrl} from "../../data";
 
 function OrderControl() {
 
@@ -28,7 +29,7 @@ function OrderControl() {
 
     {
         useEffect(() => {
-            fetch(`http://localhost:5000/Order`).then((result) => {
+            fetch(`${serverUrl}/Order`).then((result) => {
                 result.json().then((resp) => {
                     setAllOrders(resp)
                     setloading(true)
@@ -42,7 +43,7 @@ function OrderControl() {
         setloading(false)
         let DeliveryStatus = "Delivered"
         let data = { DeliveryStatus }
-        let result = await fetch(`http://localhost:5000/order/${orderedProductId}`, {
+        let result = await fetch(`${serverUrl}/order/${orderedProductId}`, {
             method: "PATCH",
             body: JSON.stringify(data),
             headers: {
@@ -54,7 +55,7 @@ function OrderControl() {
         if (output.affected === 1) {
             setAlertMessageBg('#218838')
             setAlertMessage("Status Changed Successfully")
-            fetch(`http://localhost:5000/Order`).then((result) => {
+            fetch(`${serverUrl}/Order`).then((result) => {
                 result.json().then((resp) => {
                     setAllOrders(resp)
                     setloading(true)
@@ -73,7 +74,7 @@ function OrderControl() {
         setloading(false)
         let DeliveryStatus = "PENDING"
         let data = { DeliveryStatus }
-        let result = await fetch(`http://localhost:5000/order/${orderedProductId}`, {
+        let result = await fetch(`${serverUrl}/order/${orderedProductId}`, {
             method: "PATCH",
             body: JSON.stringify(data),
             headers: {
@@ -85,7 +86,7 @@ function OrderControl() {
         if (output.affected === 1) {
             setAlertMessageBg('#218838')
             setAlertMessage("Status Changed Successfully")
-            fetch(`http://localhost:5000/Order`).then((result) => {
+            fetch(`${serverUrl}/Order`).then((result) => {
                 result.json().then((resp) => {
                     setAllOrders(resp)
                     setloading(true)
@@ -104,7 +105,7 @@ function OrderControl() {
         setloading(false)
         let DeliveryStatus = "CANCELLED"
         let data = { DeliveryStatus }
-        let result = await fetch(`http://localhost:5000/order/${orderedProductId}`, {
+        let result = await fetch(`${serverUrl}/order/${orderedProductId}`, {
             method: "PATCH",
             body: JSON.stringify(data),
             headers: {
@@ -116,7 +117,7 @@ function OrderControl() {
         if (output.affected === 1) {
             setAlertMessageBg('#218838')
             setAlertMessage("Status Changed Successfully")
-            fetch(`http://localhost:5000/Order`).then((result) => {
+            fetch(`${serverUrl}/Order`).then((result) => {
                 result.json().then((resp) => {
                     setAllOrders(resp)
                     setloading(true)

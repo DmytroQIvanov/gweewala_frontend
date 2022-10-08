@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Alert } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
+import {serverUrl} from "../../data";
 
 function ProductControl() {
 
@@ -27,7 +28,7 @@ function ProductControl() {
 
     {
         useEffect(() => {
-            fetch(`http://localhost:5000/Product`).then((result) => {
+            fetch(`${serverUrl}/Product`).then((result) => {
                 result.json().then((resp) => {
                     setAllProduct(resp)
                     setloading(true)
@@ -43,7 +44,7 @@ function ProductControl() {
     }
 
     async function deleteProduct(productId) {
-        let result = await fetch(`http://localhost:5000/Product/${productId}`, {
+        let result = await fetch(`${serverUrl}/Product/${productId}`, {
             method: "Delete"
         })
         // let output = ""
@@ -53,7 +54,7 @@ function ProductControl() {
             setAlertMessageBg('#218838')
             setAlertMessage("Product Deleted Successfully")
             handleClick()
-            fetch(`http://localhost:5000/Product`).then((result) => {
+            fetch(`${serverUrl}/Product`).then((result) => {
                 result.json().then((resp) => {
                     setAllProduct(resp)
                     setloading(true)
@@ -94,7 +95,7 @@ function ProductControl() {
                                     (allProduct).map((allProduct, i) =>
                                         <tr>
                                             <th scope="row">{i + 1}</th>
-                                            <td><img src={`http://localhost:5000/public/${allProduct.ProductImage}`} alt="#ImgNotFound" style={{ width: "30px", height: "30px", borderRadius: "100%" }} /></td>
+                                            <td><img src={`${serverUrl}/public/${allProduct.ProductImage}`} alt="#ImgNotFound" style={{ width: "30px", height: "30px", borderRadius: "100%" }} /></td>
                                             <td>{allProduct.Title}</td>
                                             <td>{allProduct.category.Title}</td>
                                             <td>

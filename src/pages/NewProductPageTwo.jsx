@@ -940,7 +940,7 @@ function NewProductPageTwo() {
                 <div class="carousel-item active">
                   <div className="px-5">
                     <img
-                    src={`http://localhost:5000/public/${item.ProductImage}`}
+                    src={`http://localhost:5000/public/${item?.ProductImage}`}
                       class="d-block w-100"
                       alt="#ImgNotFound"
                     />
@@ -949,7 +949,7 @@ function NewProductPageTwo() {
                 <div class="carousel-item">
                   <div className="px-5">
                     <img
-                    src={`http://localhost:5000/public/${item.ProductImage}`}
+                    src={`http://localhost:5000/public/${item?.ProductImage}`}
                       class="d-block w-100"
                       alt="#ImgNotFound"
                     />
@@ -958,7 +958,7 @@ function NewProductPageTwo() {
                 <div class="carousel-item">
                   <div className="px-5">
                     <img
-                    src={`http://localhost:5000/public/${item.ProductImage}`}
+                    src={`http://localhost:5000/public/${item?.ProductImage}`}
                       class="d-block w-100"
                       alt="#ImgNotFound"
                     />
@@ -967,7 +967,7 @@ function NewProductPageTwo() {
                 <div class="carousel-item">
                   <div className="px-5">
                     <img
-                    src={`http://localhost:5000/public/${item.ProductImage}`}
+                    src={`http://localhost:5000/public/${item?.ProductImage}`}
                       class="d-block w-100"
                       alt="#ImgNotFound"
                     />
@@ -976,7 +976,7 @@ function NewProductPageTwo() {
                 <div class="carousel-item">
                   <div className="px-5">
                     <img
-                    src={`http://localhost:5000/public/${item.ProductImage}`}
+                    src={`http://localhost:5000/public/${item?.ProductImage}`}
                       class="d-block w-100"
                       alt="#ImgNotFound"
                     />
@@ -1011,12 +1011,12 @@ function NewProductPageTwo() {
           </div>
           <div className="col-lg-6 px-3 pt-3">
             <h3 className="text-2xl md:text-3xl font-semibold">
-            {item.Title}
+            {item?.Title}
             </h3>
             <div className="row py-1">
               <div className="col">
                 <Link to="/" className="text-[#ffe74d] hover:text-[#ffe74d]">
-                {item.Title}
+                {item?.Title}
                 </Link>
                 &nbsp;
               </div>
@@ -1032,7 +1032,7 @@ function NewProductPageTwo() {
               </div>
             </div>
             <p className="pt-2 text-white text-lg font-medium">
-            {item.ShortDescription}
+            {item?.ShortDescription}
             </p>
             <div className="mt-2">
               <h6 className="m-0 text-[#28341E]">Buying Options</h6>
@@ -1075,7 +1075,7 @@ function NewProductPageTwo() {
             <div className="mt-5" style={{ maxWidth: "600px" }}>
               <div className="d-flex flex-col md:flex-row justify-content-start mb-3">
                 <h5 className="fw-bold m-0 text-2xl md:text-3xl mb-4 pr-3 text-left">
-                  &nbsp;₹ {item.Price}
+                  &nbsp;₹ {item?.Price}
                 </h5>
                 <div className="d-flex mb-4 align-items-center justify-content-start gap-3 ms-auto">
                   {CowGhee >= 1 ? (
@@ -1106,6 +1106,8 @@ function NewProductPageTwo() {
                       </div>
                     </>
                   )}
+
+                  localhost:5000
                   <input
                     type="text"
                     defaultValue="1"

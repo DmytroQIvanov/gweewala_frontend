@@ -2,6 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { Alert } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
+import {serverUrl} from "../../data";
 
 function AddCategory() {
 
@@ -28,7 +29,7 @@ function AddCategory() {
         formdata.append("Title", CategoryTitle);
         formdata.append("CategoryImage", CategoryImage);
         // let data = { formdata }
-        let result = await fetch(`http://localhost:5000/Category/add_category`, {
+        let result = await fetch(`${serverUrl}/Category/add_category`, {
             method: "POST",
             body: formdata
         })
