@@ -10,24 +10,24 @@ function ShopPage() {
 
   const navigate = useNavigate();
   const gettingUserDetails = useSelector(state => state.UserDetail)
-
-  {
-    React.useEffect(() => {
-      if (gettingUserDetails.length === 0) {
-        navigate("/login")
-      }
-    })
-  }
-
-
-  {
-    React.useEffect(() => {
-      if (gettingUserDetails[0].role === "admin") {
-        navigate("/admin_page")
-      }
-    }, [])
-  }
-  
+  //
+  // {
+  //   React.useEffect(() => {
+  //     if (gettingUserDetails.length === 0) {
+  //       navigate("/login")
+  //     }
+  //   })
+  // }
+  //
+  //
+  // {
+  //   React.useEffect(() => {
+  //     if (gettingUserDetails[0].role === "admin") {
+  //       navigate("/admin_page")
+  //     }
+  //   }, [])
+  // }
+  //
   return (
     <>
       <img src={shopPageTopBg} alt="#ImgNotFound" className="img-fluid w-100" />

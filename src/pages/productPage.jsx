@@ -9,13 +9,13 @@ function ProductPage() {
     const navigate = useNavigate();
     const gettingUserDetails = useSelector(state => state.UserDetail)
 
-    {
-        React.useEffect(() => {
-            if (gettingUserDetails.length === 0) {
-                navigate("/login")
-            }
-        })
-    }
+    // {
+    //     React.useEffect(() => {
+    //         if (gettingUserDetails.length === 0) {
+    //             navigate("/login")
+    //         }
+    //     })
+    // }
     // {
     //   React.useEffect(() => {
     //     if (gettingUserDetails[0].role === "admin") {
